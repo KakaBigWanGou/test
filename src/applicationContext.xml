@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans>
+
+    <bean id="fruitDAO" class="com.atguigu.fruit.dao.impl.FruitDAOImpl"/>
+
+    <!--为FruitServiceImpl实例中的FruitDAO赋值-->
+    <bean id="fruitService" class="com.atguigu.myssm.basedao.impl.FruitServiceImpl">
+        <!--property标签用来表示属性：name表示属性名，ref表示引用其他bean的id值-->
+        <property name="fruitDAO" ref="fruitDAO"/>
+    </bean>
+
+    <!--为FruitController实例中的FruitService赋值-->
+    <bean id="fruit" class="com.atguigu.fruit.controllers.FruitController">
+        <property name="fruitService" ref="fruitService"/>
+    </bean>
+
+</beans>
+
+<!--        子节点的ref对应着父节点的id (Map的key)-->
+<!--        子节点的name对应着父节点对应类的实例的属性-->
+
+
+
+
+<!--
+1.概念
+    HTML: 超文本标记语言
+    XML：可扩展的标记语言
+    HTML是XML的一个子集
+2.XML包含三个部分:
+    1) XML声明，写在xml文件的第一行
+    2) DTD 文档类型定义
+    3) XML正文
+-->
